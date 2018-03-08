@@ -1,7 +1,7 @@
 R Project MBARC Simulation
 ================
 felipeprata
-Thu Mar 8 18:41:42 2018
+Thu Mar 8 19:07:35 2018
 
 ``` r
 knitr::opts_chunk$set(echo = TRUE)
@@ -145,7 +145,7 @@ Adjust the relative abundance:
 composition.df$relativeAbundance <- composition.df$numberOfCells / sum(composition.df$numberOfCells) * 100
 ```
 
-Specify a search term which is used to locate the genome in NCBI's RefSeq or Assembly (we use rentrez to locate the genomes). Our pattern is to locate a genome by the taxonomy id, using the string txid\[TAXONOMY\_ID\_NUMBER\]. For example, by txid54736, where 54736 is the taxonomy id for the Salmonella bongori species, we will be able to retrieve information and data for Salmonella bongori serovar 66:z41:- str. SA19983605, a strain of this species with genome sequence stored in NCBI's genome (<https://www.ncbi.nlm.nih.gov/genome/?term=txid1243617>).
+Specify a search term which is used to locate the genome in NCBI's RefSeq or Assembly (we use rentrez to locate the genomes). Our pattern is to locate a genome by the taxonomy id, using the string txid\[TAXONOMY\_ID\_NUMBER\]. For example, by txid54736, where 54736 is the taxonomy id for the Salmonella bongori species, we will be able to retrieve information and data for Salmonella bongori serovar 66:z41:- str. SA19983605, a strain of this species with genome sequence stored in NCBI's Assembly and RefSeq (<https://www.ncbi.nlm.nih.gov/assembly/GCF_002211925.1/>).
 
 ``` r
 composition.df$searchTerm <- taxdumpr::getStandardTaxonomyIdsByNames(x, composition.df$species) %>% paste0("txid", .)
